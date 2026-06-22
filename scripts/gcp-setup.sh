@@ -90,6 +90,15 @@ if ! gcloud iam service-accounts describe "$SA_EMAIL" --project="$PROJECT_ID" &>
     --display-name="GitHub Actions" \
     --project="$PROJECT_ID"
   green "Service account created: $SA_EMAIL"
+  # Wait for IAM to propagate before binding roles
+  yellow "Waiting for service account to propagate..."
+  for i in $(seq 1 12); do
+    if gcloud iam service-accounts describe "$SA_EMAIL" --project="$PROJECT_ID" &>/dev/null; then
+      green "Service account is ready"
+      break
+    fi
+    sleep 5
+  done
 else
   green "Service account already exists — skipping create"
 fi
