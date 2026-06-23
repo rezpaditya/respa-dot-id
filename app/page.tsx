@@ -17,12 +17,11 @@ export default function Home() {
           Software Engineer &amp; Photographer
         </p>
         <h1 className="text-4xl md:text-6xl font-semibold tracking-tight leading-tight mb-8 max-w-2xl">
-          Hello, I&apos;m Rezpa.
+          Respa Putra here.
         </h1>
         <p className="text-lg text-[var(--muted)] leading-relaxed max-w-xl mb-10">
           I build software, take photographs, and write about both. Based in
-          Indonesia — occasionally found on volcanoes or in coffee shops with a
-          laptop.
+          Indonesia — occasionally play guitar and love coffee.
         </p>
         <div className="flex gap-4 flex-wrap">
           <Link
