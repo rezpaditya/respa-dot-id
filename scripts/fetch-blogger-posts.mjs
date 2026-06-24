@@ -12,7 +12,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT       = join(__dirname, "..");
 const CONTENT_DIR = join(ROOT, "content", "blog");
 const BLOG_HOST  = "rezpaditya.blogspot.com";
-const FROM_DATE  = "2024-09-01T00:00:00";
+const FROM_DATE  = "2014-09-01T00:00:00";
 
 // ── Fetch ─────────────────────────────────────────────────────────────────────
 
