@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Rezpa Ditya",
-    template: "%s — Rezpa Ditya",
+    default: "Respa Putra",
+    template: "%s — Respa Putra",
   },
   description:
     "Software engineer and photographer based in Indonesia. Sharing code, travel stories, and visual work.",
@@ -37,7 +37,7 @@ export default function RootLayout({
         <main className="flex-1 pt-16">{children}</main>
         <footer className="border-t border-[var(--border)] py-8 mt-24">
           <div className="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-[var(--muted)]">
-            <span>© {new Date().getFullYear()} Rezpa Ditya</span>
+            <span>© {new Date().getFullYear()} Respa Putra</span>
             <span>Built with Next.js · Deployed on Cloud Run</span>
           </div>
         </footer>

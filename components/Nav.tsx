@@ -20,7 +20,7 @@ export default function Nav() {
           href="/"
           className="text-sm font-semibold tracking-widest uppercase text-[var(--foreground)] hover:text-[var(--accent)] transition-colors"
         >
-          Rezpa Ditya
+          Respa Putra
         </Link>
         <ul className="flex gap-7">
           {links.slice(1).map(({ href, label }) => (
