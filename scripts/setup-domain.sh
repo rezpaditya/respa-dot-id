@@ -48,11 +48,14 @@ fi
 green "Service '$SERVICE' found in $REGION"
 
 # ── 3. Create domain mappings ─────────────────────────────────────────────────
+# Domain mappings require the beta track — the stable track does not support --region.
 step "3 / 3  Create domain mappings"
+
+MAPPING_FAILED=0
 
 create_mapping() {
   local domain="$1"
-  if gcloud run domain-mappings describe \
+  if gcloud beta run domain-mappings describe \
        --domain="$domain" \
        --region="$REGION" \
        --project="$PROJECT_ID" &>/dev/null 2>&1; then
@@ -61,7 +64,7 @@ create_mapping() {
   fi
 
   yellow "Creating mapping for $domain..."
-  if ! gcloud run domain-mappings create \
+  if ! gcloud beta run domain-mappings create \
     --service="$SERVICE" \
     --domain="$domain" \
     --region="$REGION" \
@@ -73,6 +76,7 @@ create_mapping() {
     yellow "   3. Add the TXT record at your registrar and wait for DNS propagation."
     yellow "   4. Re-run this script once verified."
     echo
+    MAPPING_FAILED=1
   else
     green "Mapping created for $domain"
   fi
@@ -112,4 +116,10 @@ echo
 yellow "GCP auto-provisions SSL (~15–30 min after DNS resolves)."
 yellow "Track status: https://console.cloud.google.com/run/domains?project=$PROJECT_ID"
 echo
-green "All done!"
+
+if [ "$MAPPING_FAILED" -eq 1 ]; then
+  yellow "⚠  One or more mappings could not be created yet."
+  yellow "   Complete domain verification (Step A above) and re-run this script."
+else
+  green "All done! SSL will provision automatically once DNS resolves (~15–30 min)."
+fi
