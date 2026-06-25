@@ -48,6 +48,16 @@ export function getPostBySlug(slug: string): Post | null {
   const raw = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(raw);
 
+  // Strip the first image from the body if it's already used as the cover
+  // to prevent it rendering twice (once as hero, once in the MDX content).
+  let cleanContent = content.trimStart();
+  if (data.coverImage) {
+    cleanContent = cleanContent
+      .replace(/^\[!\[.*?\]\(.*?\)\]\(.*?\)\s*\n?/, "")
+      .replace(/^!\[.*?\]\(.*?\)\s*\n?/, "")
+      .trimStart();
+  }
+
   return {
     slug,
     title: data.title ?? slug,
@@ -55,6 +65,6 @@ export function getPostBySlug(slug: string): Post | null {
     excerpt: data.excerpt ?? "",
     coverImage: data.coverImage ?? "",
     tags: data.tags ?? [],
-    content,
+    content: cleanContent,
   };
 }
