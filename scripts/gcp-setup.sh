@@ -64,6 +64,7 @@ gcloud services enable \
   artifactregistry.googleapis.com \
   iam.googleapis.com \
   iamcredentials.googleapis.com \
+  domains.googleapis.com \
   --project="$PROJECT_ID"
 green "APIs enabled"
 
@@ -189,3 +190,6 @@ printf "  %-32s %s\n" "GCP_WORKLOAD_IDENTITY_PROVIDER"  "$PROVIDER_FULL"
 printf "  %-32s %s\n" "GCP_SERVICE_ACCOUNT"             "$SA_EMAIL"
 echo
 green "All done! Merge (or push) to main to trigger your first deploy."
+echo
+yellow "Next: set up your custom domain (respa.id) by running:"
+yellow "  bash scripts/setup-domain.sh"
