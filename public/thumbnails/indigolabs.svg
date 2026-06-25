@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect width="800" height="500" fill="#111111"/>
+  <!-- Schedule grid -->
+  <rect x="160" y="120" width="380" height="280" rx="8" fill="#130a1e" stroke="#a855f7" stroke-width="1.5"/>
+  <!-- Grid header -->
+  <rect x="160" y="120" width="380" height="40" rx="8" fill="#a855f7" opacity="0.7"/>
+  <rect x="160" y="148" width="380" height="12" fill="#a855f7" opacity="0.7"/>
+  <!-- Column headers -->
+  <rect x="214" y="130" width="50" height="12" rx="2" fill="#111111" opacity="0.3"/>
+  <rect x="278" y="130" width="50" height="12" rx="2" fill="#111111" opacity="0.3"/>
+  <rect x="342" y="130" width="50" height="12" rx="2" fill="#111111" opacity="0.3"/>
+  <rect x="406" y="130" width="50" height="12" rx="2" fill="#111111" opacity="0.3"/>
+  <rect x="470" y="130" width="50" height="12" rx="2" fill="#111111" opacity="0.3"/>
+  <!-- Row dividers -->
+  <line x1="160" y1="200" x2="540" y2="200" stroke="#a855f7" stroke-width="0.5" opacity="0.4"/>
+  <line x1="160" y1="240" x2="540" y2="240" stroke="#a855f7" stroke-width="0.5" opacity="0.4"/>
+  <line x1="160" y1="280" x2="540" y2="280" stroke="#a855f7" stroke-width="0.5" opacity="0.4"/>
+  <line x1="160" y1="320" x2="540" y2="320" stroke="#a855f7" stroke-width="0.5" opacity="0.4"/>
+  <line x1="160" y1="360" x2="540" y2="360" stroke="#a855f7" stroke-width="0.5" opacity="0.4"/>
+  <!-- Column dividers -->
+  <line x1="214" y1="160" x2="214" y2="400" stroke="#a855f7" stroke-width="0.5" opacity="0.4"/>
+  <line x1="278" y1="160" x2="278" y2="400" stroke="#a855f7" stroke-width="0.5" opacity="0.4"/>
+  <line x1="342" y1="160" x2="342" y2="400" stroke="#a855f7" stroke-width="0.5" opacity="0.4"/>
+  <line x1="406" y1="160" x2="406" y2="400" stroke="#a855f7" stroke-width="0.5" opacity="0.4"/>
+  <line x1="470" y1="160" x2="470" y2="400" stroke="#a855f7" stroke-width="0.5" opacity="0.4"/>
+  <!-- Scheduled session blocks -->
+  <rect x="220" y="168" width="112" height="24" rx="4" fill="#a855f7" opacity="0.7"/>
+  <rect x="350" y="208" width="112" height="24" rx="4" fill="#a855f7" opacity="0.5"/>
+  <rect x="220" y="248" width="50" height="24" rx="4" fill="#a855f7" opacity="0.4"/>
+  <rect x="414" y="248" width="112" height="24" rx="4" fill="#a855f7" opacity="0.6"/>
+  <rect x="286" y="288" width="112" height="24" rx="4" fill="#a855f7" opacity="0.5"/>
+  <rect x="220" y="328" width="50" height="24" rx="4" fill="#a855f7" opacity="0.3"/>
+  <rect x="350" y="328" width="50" height="24" rx="4" fill="#a855f7" opacity="0.6"/>
+  <rect x="414" y="368" width="112" height="24" rx="4" fill="#a855f7" opacity="0.4"/>
+  <!-- Graduation cap (top-right) -->
+  <polygon points="610,170 660,195 610,220 560,195" fill="#a855f7" opacity="0.8"/>
+  <rect x="647" y="195" width="6" height="35" rx="2" fill="#a855f7" opacity="0.7"/>
+  <circle cx="650" cy="232" r="8" fill="#a855f7" opacity="0.6"/>
+  <rect x="600" y="217" width="20" height="28" rx="2" fill="#a855f7" opacity="0.5"/>
+</svg>

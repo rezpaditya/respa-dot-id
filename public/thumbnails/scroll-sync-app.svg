@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect width="800" height="500" fill="#111111"/>
+  <!-- Left device -->
+  <rect x="120" y="100" width="210" height="300" rx="12" fill="#0a1520" stroke="#0ea5e9" stroke-width="2"/>
+  <!-- Left screen content lines -->
+  <rect x="140" y="125" width="160" height="10" rx="3" fill="#0ea5e9" opacity="0.5"/>
+  <rect x="140" y="148" width="130" height="8" rx="3" fill="#0ea5e9" opacity="0.3"/>
+  <rect x="140" y="168" width="145" height="8" rx="3" fill="#0ea5e9" opacity="0.3"/>
+  <rect x="140" y="188" width="110" height="8" rx="3" fill="#0ea5e9" opacity="0.3"/>
+  <!-- Left scroll bar -->
+  <rect x="316" y="120" width="6" height="260" rx="3" fill="#1a2a36"/>
+  <rect x="316" y="160" width="6" height="80" rx="3" fill="#0ea5e9" opacity="0.8"/>
+  <!-- Right device -->
+  <rect x="470" y="100" width="210" height="300" rx="12" fill="#0a1520" stroke="#0ea5e9" stroke-width="2"/>
+  <!-- Right screen content lines -->
+  <rect x="490" y="125" width="160" height="10" rx="3" fill="#0ea5e9" opacity="0.5"/>
+  <rect x="490" y="148" width="130" height="8" rx="3" fill="#0ea5e9" opacity="0.3"/>
+  <rect x="490" y="168" width="145" height="8" rx="3" fill="#0ea5e9" opacity="0.3"/>
+  <rect x="490" y="188" width="110" height="8" rx="3" fill="#0ea5e9" opacity="0.3"/>
+  <!-- Right scroll bar -->
+  <rect x="666" y="120" width="6" height="260" rx="3" fill="#1a2a36"/>
+  <rect x="666" y="160" width="6" height="80" rx="3" fill="#0ea5e9" opacity="0.8"/>
+  <!-- Sync arrows between devices -->
+  <line x1="340" y1="240" x2="462" y2="240" stroke="#0ea5e9" stroke-width="2" stroke-dasharray="6 4" opacity="0.6"/>
+  <polyline points="450,230 462,240 450,250" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linejoin="round"/>
+  <polyline points="352,230 340,240 352,250" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Sync icon in middle -->
+  <circle cx="401" cy="240" r="18" fill="#111111" stroke="#0ea5e9" stroke-width="1.5"/>
+  <path d="M 393 234 A 8 8 0 1 1 409 234" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round"/>
+  <polyline points="409,230 409,234 413,234" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect width="800" height="500" fill="#111111"/>
+  <!-- Connection lines between nodes -->
+  <line x1="400" y1="180" x2="220" y2="340" stroke="#8b5cf6" stroke-width="2" opacity="0.5"/>
+  <line x1="400" y1="180" x2="580" y2="340" stroke="#8b5cf6" stroke-width="2" opacity="0.5"/>
+  <line x1="220" y1="340" x2="580" y2="340" stroke="#8b5cf6" stroke-width="2" opacity="0.5"/>
+  <!-- Animated pulse dots on lines -->
+  <circle cx="310" cy="260" r="5" fill="#8b5cf6" opacity="0.7"/>
+  <circle cx="490" cy="260" r="5" fill="#8b5cf6" opacity="0.7"/>
+  <circle cx="400" cy="340" r="5" fill="#8b5cf6" opacity="0.7"/>
+  <!-- Top node (server) -->
+  <circle cx="400" cy="180" r="42" fill="#1a1030" stroke="#8b5cf6" stroke-width="2.5"/>
+  <circle cx="400" cy="180" r="28" fill="#8b5cf6" opacity="0.15"/>
+  <!-- Server icon in top node -->
+  <rect x="381" y="166" width="38" height="8" rx="2" fill="#8b5cf6" opacity="0.7"/>
+  <rect x="381" y="178" width="38" height="8" rx="2" fill="#8b5cf6" opacity="0.5"/>
+  <circle cx="413" cy="170" r="2.5" fill="#8b5cf6"/>
+  <circle cx="413" cy="182" r="2.5" fill="#8b5cf6" opacity="0.6"/>
+  <!-- Bottom-left node -->
+  <circle cx="220" cy="340" r="42" fill="#1a1030" stroke="#8b5cf6" stroke-width="2.5"/>
+  <circle cx="220" cy="340" r="28" fill="#8b5cf6" opacity="0.15"/>
+  <!-- Browser icon -->
+  <rect x="200" y="325" width="40" height="30" rx="3" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.7"/>
+  <line x1="200" y1="334" x2="240" y2="334" stroke="#8b5cf6" stroke-width="1.5" opacity="0.7"/>
+  <circle cx="207" cy="330" r="2" fill="#8b5cf6" opacity="0.6"/>
+  <circle cx="215" cy="330" r="2" fill="#8b5cf6" opacity="0.6"/>
+  <!-- Bottom-right node -->
+  <circle cx="580" cy="340" r="42" fill="#1a1030" stroke="#8b5cf6" stroke-width="2.5"/>
+  <circle cx="580" cy="340" r="28" fill="#8b5cf6" opacity="0.15"/>
+  <!-- Phone icon -->
+  <rect x="562" y="322" width="24" height="36" rx="4" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.7"/>
+  <rect x="569" y="350" width="10" height="4" rx="1" fill="#8b5cf6" opacity="0.5"/>
+  <!-- P2P label glow -->
+  <circle cx="400" cy="250" r="6" fill="#8b5cf6" opacity="0.4"/>
+</svg>
