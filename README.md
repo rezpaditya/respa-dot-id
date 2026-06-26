@@ -11,15 +11,15 @@ Built with Next.js, deployed to GCP Cloud Run.
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                           DEVELOPMENT                                   │
 │                                                                         │
-│   ┌──────────────────┐          ┌─────────────────────────────────┐    │
-│   │   Claude AI       │          │         Terminal                │    │
-│   │                  │          │                                 │    │
-│   │  📱 Mobile app   │  ideas   │  📱 Termius (SSH)              │    │
-│   │  💻 MacBook      │ ──────▶  │  🌐 Google Cloud Shell         │    │
-│   │                  │          │                                 │    │
-│   │  Write & review  │          │  git add / commit / push        │    │
-│   │  code with AI    │          │  bash scripts/gcp-setup.sh      │    │
-│   └──────────────────┘          └───────────────┬─────────────────┘    │
+│   ┌──────────────────┐          ┌─────────────────────────────────┐     │
+│   │   Claude AI      │          │         Terminal                │     │
+│   │                  │          │                                 │     │
+│   │  📱 Mobile app   │  ideas   │  📱 Termius (SSH)                │    │
+│   │  💻 MacBook      │ ──────▶  │  🌐 Google Cloud Shell           │    │
+│   │                  │          │                                 │     │
+│   │  Write & review  │          │  git add / commit / push        │     │
+│   │  code with AI    │          │  bash scripts/gcp-setup.sh      │     │
+│   └──────────────────┘          └───────────────┬─────────────────┘     │
 │                                                 │                       │
 └─────────────────────────────────────────────────┼───────────────────────┘
                                                   │ git push
@@ -27,14 +27,14 @@ Built with Next.js, deployed to GCP Cloud Run.
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                           GITHUB                                        │
 │                                                                         │
-│   ┌──────────────────┐          ┌─────────────────────────────────┐    │
-│   │  Pull Request    │          │      GitHub Actions CI/CD        │    │
-│   │                  │  merge   │                                 │    │
-│   │  📱 Mobile app   │ ──────▶  │  1. npm run lint                │    │
-│   │  🌐 Web UI       │          │  2. tsc --noEmit                │    │
-│   │                  │          │  3. npm run build               │    │
-│   │  Review → Merge  │          │  4. docker build & push         │    │
-│   └──────────────────┘          └───────────────┬─────────────────┘    │
+│   ┌──────────────────┐          ┌─────────────────────────────────┐     │
+│   │  Pull Request    │          │      GitHub Actions CI/CD       │     │
+│   │                  │  merge   │                                 │     │
+│   │  📱 Mobile app   │ ──────▶  │  1. npm run lint                │     │
+│   │  🌐 Web UI       │          │  2. tsc --noEmit                │     │
+│   │                  │          │  3. npm run build               │     │
+│   │  Review → Merge  │          │  4. docker build & push         │     │
+│   └──────────────────┘          └───────────────┬─────────────────┘     │
 │                                                 │                       │
 └─────────────────────────────────────────────────┼───────────────────────┘
                                                   │ on main push
@@ -42,19 +42,19 @@ Built with Next.js, deployed to GCP Cloud Run.
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                           GCP                                           │
 │                                                                         │
-│   ┌──────────────────┐          ┌─────────────────────────────────┐    │
-│   │ Artifact Registry│          │         Cloud Run               │    │
-│   │                  │  deploy  │                                 │    │
-│   │  Docker images   │ ──────▶  │  europe-west1                  │    │
-│   │  (keep last 5)   │          │  0–3 instances, scale-to-zero  │    │
-│   │                  │          │  respa.id (custom domain)       │    │
-│   └──────────────────┘          └───────────────┬─────────────────┘    │
+│   ┌──────────────────┐          ┌─────────────────────────────────┐     │
+│   │ Artifact Registry│          │         Cloud Run               │     │
+│   │                  │  deploy  │                                 │     │
+│   │  Docker images   │ ──────▶  │  europe-west1                   │     │
+│   │  (keep last 5)   │          │  0–3 instances, scale-to-zero   │     │
+│   │                  │          │  respa.id (custom domain)       │     │
+│   └──────────────────┘          └───────────────┬─────────────────┘     │
 │                                                 │                       │
 └─────────────────────────────────────────────────┼───────────────────────┘
                                                   │ traffic
                                                   ▼
                                    ┌──────────────────────┐
-                                   │   Google Analytics 4  │
+                                   │  Google Analytics 4  │
                                    │                      │
                                    │  Realtime visitors   │
                                    │  Page views          │
