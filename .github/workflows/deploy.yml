@@ -9,8 +9,8 @@ on:
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   SERVICE_NAME: respa-dot-id
-  REGION: asia-southeast2        # Jakarta region
-  IMAGE: asia-southeast2-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/respa-dot-id/app
+  REGION: europe-west1        # Jakarta region
+  IMAGE: europe-west1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/respa-dot-id/app
 
 jobs:
   # ── CI ────────────────────────────────────────────────────────────────────
@@ -61,7 +61,7 @@ jobs:
         uses: google-github-actions/setup-gcloud@v2
 
       - name: Configure Docker for Artifact Registry
-        run: gcloud auth configure-docker asia-southeast2-docker.pkg.dev --quiet
+        run: gcloud auth configure-docker europe-west1-docker.pkg.dev --quiet
 
       - name: Build and push Docker image
         run: |
@@ -86,10 +86,10 @@ jobs:
       - name: Prune old images (keep last 5)
         run: |
           gcloud artifacts docker images list \
-            asia-southeast2-docker.pkg.dev/$PROJECT_ID/respa-dot-id/app \
+            europe-west1-docker.pkg.dev/$PROJECT_ID/respa-dot-id/app \
             --sort-by="~UPDATE_TIME" \
             --format="value(version)" \
             | tail -n +6 \
             | xargs -r -I{} gcloud artifacts docker images delete \
-              "asia-southeast2-docker.pkg.dev/$PROJECT_ID/respa-dot-id/app@{}" \
+              "europe-west1-docker.pkg.dev/$PROJECT_ID/respa-dot-id/app@{}" \
               --quiet || true

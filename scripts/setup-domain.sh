@@ -7,7 +7,7 @@
 set -euo pipefail
 
 PROJECT_ID="${GCP_PROJECT_ID:-respa-dot-id}"
-REGION="asia-southeast2"
+REGION="europe-west1"
 SERVICE="respa-dot-id"
 APEX="respa.id"
 WWW="www.respa.id"
