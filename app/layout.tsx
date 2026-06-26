@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import Nav from "@/components/Nav";
 import "./globals.css";
 
@@ -41,6 +42,16 @@ export default function RootLayout({
             <span>Built with Next.js · Deployed on Cloud Run</span>
           </div>
         </footer>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-FCYGKV6D51"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-FCYGKV6D51');
+        `}</Script>
       </body>
     </html>
   );
