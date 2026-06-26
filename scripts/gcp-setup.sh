@@ -7,7 +7,7 @@ set -euo pipefail
 
 # ── Config ────────────────────────────────────────────────────────────────────
 PROJECT_ID="${GCP_PROJECT_ID:-respa-dot-id}"
-REGION="asia-southeast2"
+REGION="europe-west1"
 REPO="respa-dot-id"
 SA_NAME="github-actions"
 POOL_ID="github-pool"
