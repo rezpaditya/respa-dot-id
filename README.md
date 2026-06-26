@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# respa.id
 
-## Getting Started
+Personal website — photo gallery, blog, and software portfolio.
+Built with Next.js, deployed to GCP Cloud Run.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Workflow
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                           DEVELOPMENT                                   │
+│                                                                         │
+│   ┌──────────────────┐          ┌─────────────────────────────────┐    │
+│   │   Claude AI       │          │         Terminal                │    │
+│   │                  │          │                                 │    │
+│   │  📱 Mobile app   │  ideas   │  📱 Termius (SSH)              │    │
+│   │  💻 MacBook      │ ──────▶  │  🌐 Google Cloud Shell         │    │
+│   │                  │          │                                 │    │
+│   │  Write & review  │          │  git add / commit / push        │    │
+│   │  code with AI    │          │  bash scripts/gcp-setup.sh      │    │
+│   └──────────────────┘          └───────────────┬─────────────────┘    │
+│                                                 │                       │
+└─────────────────────────────────────────────────┼───────────────────────┘
+                                                  │ git push
+                                                  ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│                           GITHUB                                        │
+│                                                                         │
+│   ┌──────────────────┐          ┌─────────────────────────────────┐    │
+│   │  Pull Request    │          │      GitHub Actions CI/CD        │    │
+│   │                  │  merge   │                                 │    │
+│   │  📱 Mobile app   │ ──────▶  │  1. npm run lint                │    │
+│   │  🌐 Web UI       │          │  2. tsc --noEmit                │    │
+│   │                  │          │  3. npm run build               │    │
+│   │  Review → Merge  │          │  4. docker build & push         │    │
+│   └──────────────────┘          └───────────────┬─────────────────┘    │
+│                                                 │                       │
+└─────────────────────────────────────────────────┼───────────────────────┘
+                                                  │ on main push
+                                                  ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│                           GCP                                           │
+│                                                                         │
+│   ┌──────────────────┐          ┌─────────────────────────────────┐    │
+│   │ Artifact Registry│          │         Cloud Run               │    │
+│   │                  │  deploy  │                                 │    │
+│   │  Docker images   │ ──────▶  │  europe-west1                  │    │
+│   │  (keep last 5)   │          │  0–3 instances, scale-to-zero  │    │
+│   │                  │          │  respa.id (custom domain)       │    │
+│   └──────────────────┘          └───────────────┬─────────────────┘    │
+│                                                 │                       │
+└─────────────────────────────────────────────────┼───────────────────────┘
+                                                  │ traffic
+                                                  ▼
+                                   ┌──────────────────────┐
+                                   │   Google Analytics 4  │
+                                   │                      │
+                                   │  Realtime visitors   │
+                                   │  Page views          │
+                                   │  Audience insights   │
+                                   └──────────────────────┘
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Layer | Choice |
+|---|---|
+| Framework | Next.js (App Router, standalone output) |
+| Styling | Tailwind CSS v4 |
+| Photos | `yet-another-react-lightbox` + Flickr CDN |
+| Blog | MDX with `next-mdx-remote` + gray-matter |
+| Auth (CI→GCP) | Workload Identity Federation — no JSON keys |
+| Container registry | GCP Artifact Registry (`europe-west1`) |
+| Hosting | GCP Cloud Run (free tier, scale-to-zero) |
+| Domain | respa.id via Cloud Run Domain Mappings + auto-SSL |
+| Analytics | Google Analytics 4 (`G-FCYGKV6D51`) |
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Local setup
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm install
+npm run dev        # http://localhost:3000
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## GCP setup (one-time)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+bash scripts/gcp-setup.sh      # provision infra, prints GitHub secrets
+bash scripts/setup-domain.sh   # map respa.id + www.respa.id
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Add the three printed values as repository secrets in GitHub:
+`GCP_PROJECT_ID` · `GCP_WORKLOAD_IDENTITY_PROVIDER` · `GCP_SERVICE_ACCOUNT`
+
+---
+
+## Deploy
+
+Push to `main` — the CI workflow handles the rest.
