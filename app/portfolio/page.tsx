@@ -13,8 +13,8 @@ export default function PortfolioPage() {
       <div className="mb-14">
         <h1 className="text-3xl font-semibold tracking-tight mb-3">Portfolio</h1>
         <p className="text-[var(--muted)] max-w-md leading-relaxed">
-          A selection of software projects I&apos;ve designed and built — from
-          internal tools to consumer apps.
+          A selection of software (hobby) projects I&apos;ve designed and built — from
+          internal tools to consumer apps (check my <a href='https://www.linkedin.com/in/rezpaditya' target='_blank'>LinkedIn</a> for my professional work).
         </p>
       </div>
 
