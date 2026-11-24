@@ -1,17 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  async redirects() {
-    return [
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "www.respa.id" }],
-        destination: "https://respa.id/:path*",
-        permanent: true,
-      },
-    ];
-  },
+  output: "export",
   images: {
+    unoptimized: true,
     remotePatterns: [
       { protocol: "https", hostname: "live.staticflickr.com" },
       { protocol: "https", hostname: "blogger.googleusercontent.com" },
@@ -20,7 +12,6 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "placehold.co" },
     ],
   },
-  output: "standalone",
 };
 
 export default nextConfig;
