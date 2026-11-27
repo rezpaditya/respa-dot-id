@@ -33,7 +33,10 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)]">
+      <head>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" async />
+      </head>
+      <body className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)] antialiased">
         <Nav />
         <main className="flex-1 pt-16">{children}</main>
         <footer className="border-t border-[var(--border)] py-8 mt-24">
